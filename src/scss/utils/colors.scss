@@ -1,0 +1,16 @@
+.color {
+
+    &-font {
+        &-primary { @include color(blue) }
+        &-primary-dark { @include color(blue) }
+        &-primary-light { @include color(blue) }
+    }
+
+
+    &-bg {
+        &-primary { @include bg(blue) }
+        &-primary-dark { @include bg(blue) }
+        &-primary-light { @include bg(blue) }
+    }
+
+}

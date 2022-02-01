@@ -1,0 +1,23 @@
+// Sizes
+$app-header: 56px;
+$app-footer: 250px;
+$app-container: calc(100vh - #{$app-header + $app-footer});
+$app-wrapper: 1400px;
+
+// Responsive Breakpoint
+$screen-lg: 1400px;
+$screen-md: 768px;
+$screen-sm: 320px;
+
+// Fonts
+$font-regular: 'Inter-Regular', -apple-system, BlinkMacSystemFont, sans-serif;
+$font-medium: 'Inter-Medium', -apple-system, BlinkMacSystemFont, sans-serif;
+$font-semiBold: 'Inter-SemiBold', -apple-system, BlinkMacSystemFont, sans-serif;
+$font-bold: 'Inter-Bold', -apple-system, BlinkMacSystemFont, sans-serif;
+
+// Colors
+$color-primary: #c1c1c1;
+$color-secondary: pink;
+
+$color-black: #000000;
+$color-white: #FFFFFF;

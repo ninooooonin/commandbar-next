@@ -1,0 +1,26 @@
+@import './utils';
+
+:root {
+
+	// Headings
+	--font-regular: 'Inter-Regular', -apple-system, BlinkMacSystemFont, sans-serif;
+	--font-medium: 'Inter-Medium', -apple-system, BlinkMacSystemFont, sans-serif;
+	--font-semiBold: 'Inter-SemiBold', -apple-system, BlinkMacSystemFont, sans-serif;
+	--font-bold: 'Inter-Bold', -apple-system, BlinkMacSystemFont, sans-serif;
+
+}
+
+html, body {
+	padding: 0;
+	margin: 0;
+	font-family: var(--font-regular);
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+* {
+  	box-sizing: border-box;
+}

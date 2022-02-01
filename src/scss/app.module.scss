@@ -1,0 +1,10 @@
+.container {
+    min-height: $app-container;
+    background-color: #F8F9F9;
+}
+
+.wrapper { 
+    max-width: $app-wrapper;
+    margin: 0 auto;
+    border: 1px solid green;
+}

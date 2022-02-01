@@ -1,0 +1,38 @@
+.container {
+    background-color: #FFFFFF;
+    min-height: 100vh;
+    padding-top: 90px;
+}
+
+.back {
+    position: fixed;
+    top: 24px;
+    left: 24px;
+}
+
+.form {
+    max-width: 380px;
+    margin: 0px auto;
+
+    .header { margin-bottom: 32px; }
+    .title { margin-bottom: 18px; }
+    .subtitle { color: #525C66; }
+
+    .body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 24px;
+    }
+
+    .divider {
+        color: #828B94;
+        text-align: center;
+        margin: 24px 0px;
+    }
+
+    .input { margin-bottom: 21px; }
+    .password { margin-bottom: 32px;}
+    .note { color: #828B94; }
+    .click {  margin-left: 3px; }
+}
