@@ -37,6 +37,10 @@ const useCommandBar = () => {
         console.log('Search Contacts');
     }
 
+    const consoleLog = (data: any) => {
+        console.log(data);
+    }
+
 	// Life Cycle
 	useEffect(() => {
         componentDidMount();
@@ -55,6 +59,7 @@ const useCommandBar = () => {
         window.CommandBar.addCallback('sortByTransactions', sortByTransactions);
         window.CommandBar.addCallback('showVerifiedOnly', showVerifiedOnly);
         window.CommandBar.addCallback('getAdvanceFilters', getAdvanceFilters);
+        window.CommandBar.addCallback('consoleLog', consoleLog)
 
         // Add Context
         window.CommandBar.addContext("activeLocations",
@@ -138,7 +143,7 @@ const useCommandBar = () => {
                 "quickFind": true,
                 }
             }
-            );
+        );
 
     }, []);
 
