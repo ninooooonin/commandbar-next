@@ -59,8 +59,8 @@ const useCommandBar = () => {
         window.CommandBar.addCallback('sortByTransactions', sortByTransactions);
         window.CommandBar.addCallback('showVerifiedOnly', showVerifiedOnly);
         window.CommandBar.addCallback('getAdvanceFilters', getAdvanceFilters);
-        window.CommandBar.addCallback('consoleLog', consoleLog)
-
+        window.CommandBar.addCallback('consoleLog', consoleLog);
+        
         // Add Context
         window.CommandBar.addContext("activeLocations",
             [
