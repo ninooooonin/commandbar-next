@@ -2,9 +2,8 @@ import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.div`
     height: inherit;
-    max-width: 1390px;
+    max-width: 830px;
     width: 100%;
-    padding: 0 12px;
     margin: 0 auto;
 `;
 

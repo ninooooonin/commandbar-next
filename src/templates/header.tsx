@@ -12,7 +12,7 @@ import { BrandIcon } from '../components/general/icons';
 import Global from '../constants/Global';
 
 const Container = styled.header`
-    height: 60px;
+    height: 65px;
     background-color: #FFF;
     border-bottom: 2px solid #F6F7F8;
     box-sizing: border-box;
@@ -82,31 +82,9 @@ const AppHeader = (props: any) => {
                             <BrandIcon styles={'brand-logo'}/>
                         </URL>
                     </Link>
-                    <Navigation>
-                        <Link href={url.browse} passHref>
-                            <URL className={'nav-item'} id={'nav_browse'}>Browse</URL>
-                        </Link>
-                    </Navigation>
                 </Left>
                 <Right>
-                    {/* <Navigation>
-                        <Link href={url.signin} passHref>
-                            <URL className={'nav-item highlight'}>Become a Seller</URL>
-                        </Link>
-                        <Link href={url.signin} passHref>
-                            <URL className={'nav-item'}>Log In</URL>
-                        </Link>
-                        <Link href={url.signup} passHref>
-                            <URL className={'nav-item signup'}>Sign Up</URL>
-                        </Link>
-                    </Navigation> */}
                     <Navigation>
-                        <Link href={url.inbox} passHref>
-                            <URL className={'nav-item'}>Inbox</URL>
-                        </Link>
-                        <Link href={url.bookings} passHref>
-                            <URL className={'nav-item'}>Bookings</URL>
-                        </Link>
                         <Link href={url.account} passHref>
                             <URL className={'nav-item solid'}>Account</URL>
                         </Link>

@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import AppContainer from '../templates/container';
 import AppHead from '../templates/head';
 import AppHeader from '../templates/header';
-import AppFooter from '../templates/footer';
 
 // Styled Components
 import { H6 } from '../components/general/text';
@@ -29,12 +28,6 @@ const Section = styled(LayoutSection)`
     &:last-child {
         margin-bottom: 0px;
     }
-`
-
-const Banner = styled.div`
-    width: 100%;
-    min-height: 200px;
-    background-color: #FFFFFF;
 `
 
 const Home = () => {
@@ -63,7 +56,6 @@ const Home = () => {
             <AppHead title={title} />
             <AppHeader />
             <AppContainer styles={app.container}>
-                <Banner></Banner>
                 <Wrapper>
                     <Section>
                     </Section>
@@ -71,7 +63,6 @@ const Home = () => {
                     </Section>
                 </Wrapper>
             </AppContainer>
-            <AppFooter />
         </Fragment>
 	)
 }
