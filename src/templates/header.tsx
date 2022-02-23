@@ -3,7 +3,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 
 // Components
-import { URL } from '../components/general/text';
+import { URL, H6 } from '../components/general/text';
 import { Wrapper as LayoutWrapper, Row, Column } from '../components/general/layout';
 import Switch from '../components/entry/switch';
 
@@ -14,10 +14,13 @@ import { BrandIcon } from '../components/general/icons';
 import Global from '../constants/Global';
 
 const Container = styled.header`
-    height: 65px;
+    height: 54px;
     background-color: #FFF;
     border-bottom: 2px solid #F6F7F8;
     box-sizing: border-box;
+    position: sticky;
+    top: 0px;
+    z-index: 100;
 `;
 
 const Wrapper = styled(LayoutWrapper)`
@@ -40,35 +43,11 @@ const Right = styled.div`
     align-items: center;
 `;
 
-const Navigation = styled.nav`
-    display: flex;
+const Action = styled(Row)`
     align-items: center;
-
-    .nav-item {
-        color: #000000;
-        font-size: 16px;
-        font-family: var(--font-medium);
-        margin-right: 32px;
-        white-space: nowrap;
-
-        &.highlight { 
-            color: #1FC749;
-        }
-
-        &.solid {
-            height: 36px;
-            background-color: #000000;
-            border-radius: 8px;
-            padding: 0px 12px;
-            color: #FFFFFF;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        &:last-child {
-            margin-right: 0px;
-        }
+    
+    button {
+        margin-left: 12px;
     }
 `;
 
@@ -90,7 +69,10 @@ const AppHeader = (props: any) => {
                     </Link>
                 </Left>
                 <Right>
-                    <Switch onClick={() => setCleanMode(!cleanMode)} active={cleanMode}/>
+                    <Action>
+                        <H6>Clean Mode</H6>
+                        <Switch onClick={() => setCleanMode(!cleanMode)} active={cleanMode}/>
+                    </Action>               
                 </Right>
             </Wrapper>
         </Container>
