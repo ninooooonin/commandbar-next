@@ -84,3 +84,10 @@ export const URL = styled.a`
     margin: 0px;
     color: #4285F4;
 `
+
+export const Code = styled.code`
+    line-height: 14px;
+    font-size: 14px;
+    font-family: var(--font-regular);
+    margin: 0px;
+`
