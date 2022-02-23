@@ -3,16 +3,17 @@ import styled from 'styled-components';
 
 const propTypes = {
     onClick: PropTypes.func,
-    active: PropTypes.bool
+    active: PropTypes.bool,
+    size: PropTypes.string
 };
 
 const defaultProps = {
     onClick: null,
-    active: false
+    active: false,
+    size: 'small'
 };
 
 const Button = styled.button`
-    width: 45px;
     border-radius: 32px;
     background-color: #DFDFDF;
     position: relative;
@@ -28,25 +29,48 @@ const Button = styled.button`
     &.active {
         background-color: #4242CB;
         justify-content: flex-end;
+
+        &:hover { box-shadow: 0px 0px 0px 2px #d9d9fc; }
     }
+
+    &.small {
+        width: 36px;
+
+        i {
+            height: 16px;
+            width: 16px;
+
+            &:hover {
+                width: 18px;
+            }
+        }
+    }
+
+    &.medium {
+        width: 45px;
+
+        i {
+            height: 21px;
+            width: 21px;
+
+            &:hover {
+                width: 22.5px;
+            }
+        }
+    }
+
 `
 
 const Indicator = styled.i`
-    height: 21px;
-    width: 21px;
     background-color: #FFFFFF;
     border-radius: 32px;
     transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
-
-    &:hover {
-        width: 22.5px;
-    }
 `
 
 const Switch = (props: any) => {
-    const { active, onClick } = props;
+    const { active, onClick, size } = props;
     return (
-        <Button role='switch' onClick={onClick} className={`${active ? 'active': ''}`}>
+        <Button role='switch' onClick={onClick} className={`${size} ${active ? 'active': ''}`}>
             <Indicator />
         </Button>
     )
