@@ -1,9 +1,11 @@
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 
 // Components
 import { URL } from '../components/general/text';
 import { Wrapper as LayoutWrapper, Row, Column } from '../components/general/layout';
+import Switch from '../components/entry/switch';
 
 // Icons
 import { BrandIcon } from '../components/general/icons';
@@ -73,6 +75,10 @@ const Navigation = styled.nav`
 const AppHeader = (props: any) => {
     const { url } = Global;
 
+
+    // Local states
+    const [cleanMode, setCleanMode] = useState(false);
+
     return (
         <Container>
             <Wrapper>
@@ -84,11 +90,7 @@ const AppHeader = (props: any) => {
                     </Link>
                 </Left>
                 <Right>
-                    <Navigation>
-                        <Link href={url.account} passHref>
-                            <URL className={'nav-item solid'}>Account</URL>
-                        </Link>
-                    </Navigation>
+                    <Switch onClick={() => setCleanMode(!cleanMode)} active={cleanMode}/>
                 </Right>
             </Wrapper>
         </Container>

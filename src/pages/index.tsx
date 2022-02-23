@@ -20,10 +20,11 @@ const Wrapper = styled(LayoutWrapper)`
 `
 
 const Section = styled(LayoutSection)`
-    margin-bottom: 18px;
-    min-height: 250px;
+    margin-bottom: 20px;
+    min-height: 125px;
     background-color: #fff;
-    border-radius: 8px;
+    border-radius: 12px;
+    box-shadow: 0 3px 5px #eeeeee;    
 
     &:last-child {
         margin-bottom: 0px;
