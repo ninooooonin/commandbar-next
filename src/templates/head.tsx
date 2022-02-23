@@ -9,11 +9,11 @@ const propTypes = {
 };
 
 const defaultProps = {
-    title: 'ONDMD.',
-    description: 'Hire nearby professionals on-demand.',
+    title: 'QueyBar: Built for automation',
+    description: `QueyBar (kyu 'ei bar): built to automate repetitive tasks on CommandBar QA.`,
     url: '',
     type: 'website'
-};
+}
 
 const AppHead = (props: any) => {
     const { title, description, url, type } = props;
