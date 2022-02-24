@@ -13,18 +13,19 @@ import Global from '../constants/Global';
 const propTypes = {
     title: PropTypes.string,
     description: PropTypes.string,
+    instruction: PropTypes.string,
     action: PropTypes.any
 };
 
 const defaultProps = {
     title: '',
     description: '',
+    instruction: '',
     action: {}
 };
 
 const Container = styled(LayoutSection)`
     margin-bottom: 20px;
-    min-height: 125px;
     background-color: #fff;
     border-radius: 12px;
     box-shadow: 0 3px 5px #eeeeee;    
@@ -55,17 +56,26 @@ const Wrapper = styled.div`
     margin-top: 8px;
 `
 
-const Action = styled(Row)`
-
+const Instruction = styled(Paragraph)`
+    max-width: 100% !important;
+    font-size: 14px !important;
+    color: #4242ca;
+    margin-top: 12px;
+    padding: 12px 12px 12px 16px;
+    background-color: #e9e9ff;
+    border-radius: 0px;
+    border-left: 3px solid #4242ca;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
 `;
 
 const Section = (props: any) => {
-    const { title, description, action } = props;
+    const { title, description, instruction, action } = props;
 
-    const setAction = (type: string) => {
-        if (type == Global.action.SWITCH) {
-            return <Switch active={false} />
-        } else if (type == Global.action.BUTTON) {
+    const setAction = (action: any) => {
+        if (action.type == Global.action.SWITCH) {
+            return <Switch active={action.value} onClick={action.onClick} />
+        } else if (action.type == Global.action.BUTTON) {
             return <Switch active={true} />
         } else {
             return null;
@@ -76,10 +86,11 @@ const Section = (props: any) => {
         <Container>
             <TopWrapper>
                 <H6>{title}</H6>
-                {setAction(action.type)}
+                {setAction(action)}
             </TopWrapper>
             <Wrapper>
                 <Paragraph>{description}</Paragraph>
+                { instruction && <Instruction>{instruction}</Instruction> }
             </Wrapper>
         </Container>
     )

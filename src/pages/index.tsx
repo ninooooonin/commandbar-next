@@ -22,18 +22,20 @@ const Wrapper = styled(LayoutWrapper)`
     padding-bottom: 25px;
 `
 
-const Home = () => {
+const Page = () => {
 
 	// States
 	const [isMounted, setMount] = useState(false);
-	const [title, setTitle] = useState<string>('QueyBar: Built for automation');
+	const [title, setTitle] = useState<string>('QueyBar: Built for CommandBar');
 
-    // Constants
-    const action = {
-        SWITCH: 'switch',
-        BUTTON: 'button'
-    };
+    // Local states
+    const [cleanMode, setCleanMode] = useState(false);
 
+    // Data States
+	const [data_stress_test_cmd_k, set_data_stress_test_cmd_k] = useState(false);
+	const [data_shutdown_cmdbar, set_data_shutdown_cmdbar] = useState(false);
+
+    // Data
     const data = [
         {  
             title: `Stress Test ⌘ + K`, 
@@ -41,81 +43,23 @@ const Home = () => {
                 window.CommandBar.isOpen() with an interval of X seconds.`,  
             action: {
                 type: Global.action.SWITCH,
-                onChange: null,
-                value: false,
+                onClick: () => set_data_stress_test_cmd_k(!data_stress_test_cmd_k),
+                value: data_stress_test_cmd_k,
             }
         },
         {  
             title: `Shutdown CommandBar`, 
             description: `Execute window.CommandBar.shutdown()`,  
-            action: {
-                type: Global.action.BUTTON,
-                onClick: null,
-                value: false
-            }
-        },
-        {  
-            title: `Enable custom components`, 
-            description: `Add a custom header and footer using the new SDK enterprise feature. 
-                Requires to update org settings. Go to Org > Settings > Enabled custom component)`,
-            action: {
-                type: Global.action.BUTTON,
-                onClick: null,
-                value: false
-            }
-        },
-        {  
-            title: `Stress Test ⌘ + K`, 
-            description: `Execute window.CommandBar.open(), window.CommandBar.close() and 
-                window.CommandBar.isOpen() with an interval of X seconds.`,  
             action: {
                 type: Global.action.SWITCH,
-                onChange: null,
-                value: false,
-            }
-        },
-        {  
-            title: `Shutdown CommandBar`, 
-            description: `Execute window.CommandBar.shutdown()`,  
-            action: {
-                type: Global.action.BUTTON,
-                onClick: null,
-                value: false
+                onClick: () => set_data_shutdown_cmdbar(!data_shutdown_cmdbar),
+                value: data_shutdown_cmdbar
             }
         },
         {  
             title: `Enable custom components`, 
-            description: `Add a custom header and footer using the new SDK enterprise feature. 
-                Requires to update org settings. Go to Org > Settings > Enabled custom component)`,
-            action: {
-                type: Global.action.BUTTON,
-                onClick: null,
-                value: false
-            }
-        },
-        {  
-            title: `Stress Test ⌘ + K`, 
-            description: `Execute window.CommandBar.open(), window.CommandBar.close() and 
-                window.CommandBar.isOpen() with an interval of X seconds.`,  
-            action: {
-                type: Global.action.SWITCH,
-                onChange: null,
-                value: false,
-            }
-        },
-        {  
-            title: `Shutdown CommandBar`, 
-            description: `Execute window.CommandBar.shutdown()`,  
-            action: {
-                type: Global.action.BUTTON,
-                onClick: null,
-                value: false
-            }
-        },
-        {  
-            title: `Enable custom components`, 
-            description: `Add a custom header and footer using the new SDK enterprise feature. 
-                Requires to update org settings. Go to Org > Settings > Enabled custom component)`,
+            description: `Add a custom header and footer using the new SDK enterprise feature.`,
+            instruction: `Requires to update org settings. Go to Org → Settings → Enabled custom component`,
             action: {
                 type: Global.action.BUTTON,
                 onClick: null,
@@ -140,6 +84,7 @@ const Home = () => {
                 title={item.title} 
                 description={item.description} 
                 action={item.action}
+                instruction={item.instruction}
             />
         );
     }
@@ -150,15 +95,21 @@ const Home = () => {
         return componentWillUnmount;
     }, []);
 
+    useEffect(() => {
+        if(data_stress_test_cmd_k) {
+            window.CommandBar.open();
+        }
+    }, [data_stress_test_cmd_k]);
+
 	return (
         <Fragment>
             <AppHead title={title} />
-            <AppHeader />
-            <AppContainer styles={app.container}>
+            <AppHeader cleanMode={cleanMode} setCleanMode={() => setCleanMode(!cleanMode)}/>
+            <AppContainer styles={`${app.container} ${cleanMode ? 'clean': ''}`}>
                 <Wrapper>{ generateSections() }</Wrapper>
             </AppContainer>
         </Fragment>
 	)
 }
 
-export default Home;
+export default Page;
