@@ -69,6 +69,34 @@ const Instruction = styled(Paragraph)`
     border-top-right-radius: 5px;
 `;
 
+const Button = styled.button`
+    padding: 5px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    background-color: #262626;
+    border-radius: 5px;
+    border: 0px;
+    cursor: pointer;
+    
+    span {
+        color: #FFFFFF;
+        font-size: 14px;
+    }
+`;
+
+
+const Action = (props: any) => {
+    const { label, onClick } = props;
+
+    return (
+        <Button>
+            <span>{label}</span>
+        </Button>
+    )
+}
+
 const Section = (props: any) => {
     const { title, description, instruction, action } = props;
 
@@ -76,7 +104,7 @@ const Section = (props: any) => {
         if (action.type == Global.action.SWITCH) {
             return <Switch active={action.value} onClick={action.onClick} />
         } else if (action.type == Global.action.BUTTON) {
-            return <Switch active={true} />
+            return <Action label={'Run'} onClick={null} />
         } else {
             return null;
         }
