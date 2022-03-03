@@ -91,7 +91,7 @@ const Action = (props: any) => {
     const { label, onClick } = props;
 
     return (
-        <Button>
+        <Button onClick={onClick}>
             <span>{label}</span>
         </Button>
     )

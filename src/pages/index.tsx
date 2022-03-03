@@ -26,7 +26,7 @@ const Page = () => {
 
 	// States
 	const [isMounted, setMount] = useState(false);
-	const [title, setTitle] = useState<string>('QueyBar: Built for CommandBar');
+	const [title, setTitle] = useState<string>('QueyBar: Built for CommandBar QA');
 
     // Local states
     const [cleanMode, setCleanMode] = useState(false);

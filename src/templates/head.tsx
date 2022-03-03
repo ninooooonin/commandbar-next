@@ -9,7 +9,7 @@ const propTypes = {
 };
 
 const defaultProps = {
-    title: 'QueyBar: Built for CommandBar',
+    title: 'QueyBar: Built for CommandBar QA',
     description: `QueyBar (kyu 'ei bar): built to automate repetitive tasks on CommandBar QA.`,
     url: '',
     type: 'website'
